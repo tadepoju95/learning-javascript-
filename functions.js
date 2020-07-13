@@ -54,4 +54,61 @@ let countNumberOfVowels = (stringOfWords) => {
   }
   return numberOfVowels; 
 }
-console.log(countNumberOfVowels('How are you Ade'));  
+console.log(countNumberOfVowels('How are you Ade'.toLowerCase()));  
+
+//Accepts two arguments(string & letter)
+//Count the number of occurrences of the letter within the string
+
+let countNumberOfLetter = (stringOfWords, letter) => {
+  let arrayOfCharacters = stringOfWords.split('');
+  let numberOfLetter = 0
+  
+  for(let i = 0; i < arrayOfCharacters.length; i++) {
+    if(letter.includes(arrayOfCharacters[i])) {
+      numberOfLetter++;
+    }
+  }
+  return numberOfLetter;
+}
+console.log(countNumberOfLetter('how are you', 'o'));
+
+//Accepts a number as parameter 
+//Check to see whether it's prime or not
+
+let primeNumberOrNot = (setNumber) => {
+  let primeNumbers = [2, 3, 5, 7, 11, 13];
+ 
+  if(primeNumbers.includes(setNumber)) {
+    return setNumber + ' is a prime number';
+  } else {
+    return setNumber + ' is not a prime number';
+  }
+}
+console.log(primeNumberOrNot(5));
+
+//checks whether a passed string is palindrome or not
+/*
+1. define a function that takes a string as a parameter
+2. split the string into array of characters 
+3. create a variable stores the reversed characters 
+4. start looping through the array of characters
+5. if the characters in our loop, starting from index 0, 
+is the same as the characters in our wordReversed variable
+return true else return false
+*/
+
+let isStringPalindrome = (stringOfWord) => {
+  let arrayOfCharacters = stringOfWord.split(''); 
+  let wordReversed = arrayOfCharacters.reverse();
+
+  for(let i = 0; i < arrayOfCharacters.length; i++) {
+    if(arrayOfCharacters[i] === wordReversed) {
+       return true;
+  } else {
+       return false;
+  }
+  }
+}
+console.log(isStringPalindrome('run')); 
+
+
