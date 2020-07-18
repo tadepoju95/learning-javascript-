@@ -4,9 +4,9 @@
 1. define a function that takes a string as a parameter
 2. split the string into arrays of words
 3. save the first word into a variable called longest 
-5. start looping through the array of words and compare each word to the word
+5. use the forEach method to compare each word to the word
 stored in our variable longest.
-6. if the word in our loop is longer than the word in the longest variable
+6. if the word in our array is longer than the word in the longest variable
 we set the longest variable to be equal to that word.
 7. return the longest word 
 */
@@ -15,12 +15,11 @@ let findLongestWord = (stringOfWords) => {
   let arrayOfWords = stringOfWords.split(' '); 
   let longest = arrayOfWords[0];
   
-  
-  for(let i = 0; i < arrayOfWords.length; i = i + 1) {
-    if(arrayOfWords[i].length > longest.length) {
-      longest = arrayOfWords[i];  
+  arrayOfWords.forEach(arrayOfWords => {
+    if(arrayOfWords.length > longest.length) {
+      longest = arrayOfWords;
     }
-  }
+  });
   return longest; 
 }
 
@@ -32,8 +31,8 @@ console.log(findLongestWord('which animal is bigger than an elephant'));
 2. split the string into arrays of characters 
 3. create a variable that stores array of vowels 
 4. create a variable that stores number of vowel and set it to 0 to start with 
-5. start looping through the array of characters
-6. if the characters in our loop is included in our vowel array, 
+5. use the filter method to check every element in the array 
+6. if the charaters in our array is included in our vowel array, 
 we want to increase our variable that stores our number of vowels by 1. 
 7. return the variable that stores number of vowels.
 */
@@ -43,18 +42,16 @@ let countNumberOfVowels = (stringOfWords) => {
   let arrayOfVowels = ['a', 'e', 'i', 'o', 'u'];
   let numberOfVowels = 0;
   
-  for(let i = 0; i < arrayOfCharacters.length; i++) {
-    console.log(arrayOfCharacters[i]); 
-    if(arrayOfVowels.includes(arrayOfCharacters[i])) {
+  arrayOfCharacters.filter(arrayOfCharacters => {
+    if(arrayOfVowels.includes(arrayOfCharacters)) {
       numberOfVowels = numberOfVowels + 1;
-      console.log('this is a vowel')
-      console.log(arrayOfCharacters[i]);
+      
       
     } 
-  }
+  });
   return numberOfVowels; 
 }
-console.log(countNumberOfVowels('How are you Ade'.toLowerCase()));  
+console.log(countNumberOfVowels('How are you Ade'.toLowerCase())); 
 
 //Accepts two arguments(string & letter)
 //Count the number of occurrences of the letter within the string
@@ -63,11 +60,11 @@ let countNumberOfLetter = (stringOfWords, letter) => {
   let arrayOfCharacters = stringOfWords.split('');
   let numberOfLetter = 0
   
-  for(let i = 0; i < arrayOfCharacters.length; i++) {
-    if(letter.includes(arrayOfCharacters[i])) {
+  arrayOfCharacters.map(arrayOfCharacters => {
+    if(letter.includes(arrayOfCharacters)) {
       numberOfLetter++;
     }
-  }
+  });
   return numberOfLetter;
 }
 console.log(countNumberOfLetter('how are you', 'o'));
@@ -111,6 +108,25 @@ let isStringPalindrome = (stringOfWord) => {
   }
 }
 console.log(isStringPalindrome('run')); 
+
+/*
+write a program which iterates the integers from 1 to 100. 
+for multiples of 3, print "Fizz", for multiples of 5, print "Buzz"
+for numbers which are multiples of 3 and 5, print "FizzBuzz"
+*/
+
+for(let i = 1; i < 101; i++) {
+  if(i % 3 === 0 && i % 5 === 0) {
+    console.log('FizzBuzz');
+  } else if(i % 3 === 0) {
+    console.log('Fizz');
+  } else if(i % 5 === 0) {
+    console.log('Buzz');
+  } else {
+    console.log(i);
+  }
+}
+
 
 
 
