@@ -23,24 +23,11 @@ let firstTable = () => {
 let numberOfItems = () => {
   let list = document.getElementById('lunch').length;
   document.getElementById('displayList').innerHTML = list;
-  let items = ''; 
 
-  for(let i = 0; i < list.length; i++) {
-    items = items + list.options[i].text + "<br>";
+  for(let i = 0; i < list; i++) {
+    let items = list.options[i].text + "<br>";
   }
   document.getElementById('listing').innerHTML = items;
-}
-
-//items in the list
-function drop() {
-  var A = document.getElementById("lunch");
-  var items = "";
-  var i;
-  for (i = 0; i < A.length; i++) {
-    items += A.options[i].text + '<br>';
-  }
-  
-  document.getElementById("down").innerHTML = items;
 }
 
 
