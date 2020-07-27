@@ -21,14 +21,19 @@ let firstTable = () => {
 
 //Display number of items and items in the list
 let numberOfItems = () => {
-  let list = document.getElementById('lunch').length;
-  document.getElementById('displayList').innerHTML = list;
+  let getLength = document.getElementById('lunch').length;
+  document.getElementById('displayList').innerHTML = getLength;
+  let list = document.getElementById('lunch');
+  let listItems = '';
+  console.log(listItems = listItems);
 
-  for(let i = 0; i < list; i++) {
-    let items = list.options[i].text + "<br>";
+  for(let i = 0; i < list.length; i++) {
+    listItems += list.options[i].text + '<br>';
+
   }
-  document.getElementById('listing').innerHTML = items;
-}
+  return document.getElementById('listing').innerHTML = listItems;
+} 
+
 
 
 
