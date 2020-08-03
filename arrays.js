@@ -8,7 +8,50 @@ so we can get our select elements from it
 */
 
 let returnElement = (array, numberN) => {
-  let elements = array.slice(0, numberN)
+  let elements = array.slice(0, numberN);
   return elements;
 }
 console.log(returnElement(['Ketchup', 'Mustard', 'Soy Sauce', 'Sriracha'], 2));
+
+//join all elements of an array into a string 
+/*
+1. write a function that takes in array as parameter
+2. declare a variable and define it by using the join and replace methods on our array
+3. return the joining variable
+*/
+
+let joinElements = (array) => {
+  let joining = array.join('').replace(/\s/g, '');
+  return joining;
+}
+console.log(joinElements(['Ketchup', 'Mustard', 'Soy Sauce', 'Sriracha']));
+
+//sort the items of an array 
+/*
+1. write a function that takes in an array as parameter
+2. declare a variable and define it by using the sort method on our array
+3. return the sorting variable
+*/
+
+let sortItems = (array) => {
+  let sorting = array.sort((a, b) => a - b);
+  return sorting;
+}
+console.log(sortItems([-3, 8, 7, 6, 5, -4, 3, 2, 1])); 
+
+//remove duplicate items 
+/*
+1. write a function that takes in an array as parameter
+2. declare a variable and define it by using set object on our array
+3. return the removingItems variable
+*/
+
+let removeDuplicate = (array) => {
+  let removingItems = [...new Set(array)];
+  return removingItems;
+}
+console.log(removeDuplicate(['Ketchup', 'Mustard', 'Soy Sauce', 'Sriracha', 'Mustard', 'Ketchup']));
+
+
+
+
