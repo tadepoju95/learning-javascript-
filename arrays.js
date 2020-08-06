@@ -42,13 +42,16 @@ console.log(sortItems([-3, 8, 7, 6, 5, -4, 3, 2, 1]));
 //remove duplicate items 
 /*
 1. write a function that takes in an array as parameter
-2. declare a variable and define it by using set object on our array
-3. return the removingItems variable
+2. declare a variable and define it by using the filter method on our array
+3. use the callback function to test each element 
+4. return the variable
 */
 
 let removeDuplicate = (array) => {
-  let removingItems = [...new Set(array)];
-  return removingItems;
+  let removeDuplicatedItems = array.filter((element,index) => {
+    return array.indexOf(element) === index;
+  });
+    return removeDuplicatedItems;
 }
 console.log(removeDuplicate(['Ketchup', 'Mustard', 'Soy Sauce', 'Sriracha', 'Mustard', 'Ketchup']));
 
