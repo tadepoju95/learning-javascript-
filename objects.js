@@ -29,11 +29,11 @@ let person = {
   age: 29
 };
 
-let returnLength = () => {
-  let getLengthOfObject = Object.keys(person).length;
+let returnLength = obj => {
+  let getLengthOfObject = Object.keys(obj).length;
     return getLengthOfObject;
 }
-console.log(returnLength());
+console.log(returnLength(person));
 
 //function that checks whether an object contains the specified key 
 
@@ -43,11 +43,11 @@ let person = {
   age: 29
 };
 
-let objectContainsKey = () => {
-  let checksIfObjectHasKey = person.hasOwnProperty('age');
+let objectContainsKey = objKey => {
+  let checksIfObjectHasKey = person.hasOwnProperty(objKey);
     return checksIfObjectHasKey;
 }
-console.log(objectContainsKey());
+console.log(objectContainsKey('firstName'));
 
 //write a function to sort the array of objects by title value 
 
@@ -57,16 +57,16 @@ let books = [
    { author: 'Suzanne Collins', title: 'Mockingjay: The Final Book of The Hunger Games', libraryID: 3245}
 ]
 
-let sortArray = () => {
+let sortArray = objValue => {
   let sortByTitleValue = books.sort((a, b) => {
-    if(a.title < b.title) {
+    if(a[objValue] < b[objValue]) {
       return -1;
     }
-    if(a.title > b.title) {
+    if(a[objValue] > b[objValue]) {
       return 1;
     }
     return 0;
   });
   return sortByTitleValue;
 }
-console.log(sortArray());
+console.log(sortArray('title'));
