@@ -1,13 +1,20 @@
 //Delete a property from an object 
+
 const spaceship = {
   color: 'White',
   homePlanet: 'Earth',
   numCrew: 5
 };
-delete spaceship['homePlanet'];
+
+let deleteProperty = (obj, objProperty) => {
+  let deleteObjectProperty = delete obj[objProperty]
+  return deleteObjectProperty;
+}
+console.log(deleteProperty(spaceship, 'numCrew'));
 console.log(spaceship);
 
 //Display the first and last name of all the people
+
 let peoplesInfo = [{
     firstName: 'Tom',
     lastName: 'Jerry',
@@ -18,9 +25,15 @@ let peoplesInfo = [{
     age: 35
   }]
 
-for (let property in peoplesInfo) {
-  console.log(`${peoplesInfo[property].firstName} ${peoplesInfo[property].lastName}`)}; 
-
+let displayFullNames = (obj, objKeyA, objKeyB) => {
+  let getNames = '';
+  obj.forEach(obj => {
+    getNames += `${obj[objKeyA]} ${obj[objKeyB]} \n` 
+  });
+  return getNames;
+}
+console.log(displayFullNames(peoplesInfo, 'firstName', 'lastName'));
+ 
 //function that accepts an object and tells you the length 
 
 let person = {
@@ -43,11 +56,11 @@ let person = {
   age: 29
 };
 
-let objectContainsKey = objKey => {
+let objectContainsKey = (obj, objKey) => {
   let checksIfObjectHasKey = person.hasOwnProperty(objKey);
     return checksIfObjectHasKey;
 }
-console.log(objectContainsKey('firstName'));
+console.log(objectContainsKey(person, 'firstName'));
 
 //write a function to sort the array of objects by title value 
 
@@ -57,7 +70,7 @@ let books = [
    { author: 'Suzanne Collins', title: 'Mockingjay: The Final Book of The Hunger Games', libraryID: 3245}
 ]
 
-let sortArray = objValue => {
+let sortArray = (obj, objValue) => {
   let sortByTitleValue = books.sort((a, b) => {
     if(a[objValue] < b[objValue]) {
       return -1;
@@ -69,4 +82,4 @@ let sortArray = objValue => {
   });
   return sortByTitleValue;
 }
-console.log(sortArray('title'));
+console.log(sortArray(books, 'title'));
