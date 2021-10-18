@@ -72,21 +72,24 @@ console.log(countNumberOfLetter('how are you', 'o'));
 //Accepts a number as parameter 
 //Check to see whether it's prime or not
 /*
-To prove whether a number is a prime number, 
-first try dividing it by 2, and see if you get a whole number. 
-If you do, it can't be a prime number.
+number that is divisible by itself and 1
 */
 
-let isItPrimeNumber = (randomNumbers) => {
-  let i = 2;
-  let calculate = randomNumbers / i;
-  if(Number.isInteger(calculate) && calculate > 1) {
+let isItPrimeNumber = (n) => {
+  if (n < 2) {
     return false;
-  } else {
-    return calculate > 0.5;
   }
+  
+  for (let i = 2; i <= Math.sqrt(n); i++) {
+    if (n % i === 0) {
+      return false;
+    }
+  }
+  
+  return true;
 }
-console.log((isItPrimeNumber(Math.round(12)))); 
+console.log((isItPrimeNumber(15))); 
+
 
 //checks whether a passed string is palindrome or not
 /*
